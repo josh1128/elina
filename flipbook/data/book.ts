@@ -33,20 +33,11 @@ export const surprise = {
 };
 
 // ---- Page types ------------------------------------------------------------
-// "title"        big serif heading + subtitle
-// "letter"       a longer heartfelt note (with an optional signature)
-// "text"         a short romantic line, centred
-// "photo"        one large photo (+ optional caption / date)
-// "photo-caption"one photo with a handwritten caption underneath
-// "photo-note"   one photo with a longer note beside it
-// "collage"      two photos side by side (+ optional heading)
-// "collage-note" two photos beside a dated memory note
-// "final"        the closing message that reveals the surprise button
-// "end"          the very last "to be continued" page
 export type Page =
   | { type: "title"; title: string; subtitle?: string }
   | { type: "letter"; heading?: string; body: string; signature?: string }
   | { type: "text"; body: string }
+  | { type: "firsts"; title: string; items: { date: string; label: string }[] }
   | { type: "photo"; src: string; caption?: string; date?: string; alt?: string }
   | {
       type: "photo-caption";
@@ -98,6 +89,25 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
   // Title
   { type: "title", title: "Our Story ❤️", subtitle: "For us." },
 
+  // Our Firsts timeline
+  {
+    type: "firsts",
+    title: "Our Firsts",
+    items: [
+      { date: "April 22", label: "When we first met" },
+      { date: "April 26", label: "First hangout" },
+      { date: "May 16", label: "First date" },
+      { date: "May 18", label: "First workout together" },
+      { date: "June 20", label: "First lake trip" },
+      { date: "June 27", label: "First R2 tournament" },
+      { date: "July 5", label: "First hike" },
+      { date: "July 31", label: "Your birthday" },
+      { date: "August 8", label: "First R4 tournament" },
+      { date: "August 18", label: "First movie night" },
+      { date: "August 27", label: "First concert" },
+    ],
+  },
+
   // Opening line
   { type: "text", body: "For all the moments I never want to forget." },
 
@@ -116,7 +126,7 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     caption: "One of my favourite days with you.",
   },
 
-  // Page 6 — Cultus Lake photos
+  // Cultus Lake photos
   {
     type: "collage",
     photos: [
@@ -133,7 +143,7 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     ],
   },
 
-  // Page 7 — Cultus Lake note
+  // Cultus Lake note
   {
     type: "letter",
     heading: "June 20, 2026",
@@ -144,7 +154,7 @@ I really enjoyed laying down with you and walking around talking about the diffe
 I’m looking forward to doing more lake trips with you.`,
   },
 
-  // Page 8 — volleyball
+  // Volleyball
   {
     type: "photo-note",
     src: "/photos/photo5.jpg",
@@ -213,7 +223,7 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     body: "Thank you for all the laughs, adventures, and memories.",
   },
 
-  // Favourite photo of us — dressed up at the wharf
+  // Marathon day
   {
     type: "photo-note",
     src: "/photos/photo17.jpg",
