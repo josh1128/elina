@@ -39,16 +39,10 @@ body::before {
   color: #183b56;
 }
 
-/* react-pageflip fills its wrapper; keep the shadow cool and airy */
 .book-shadow .stf__parent {
   filter: drop-shadow(0 30px 42px rgba(39, 75, 100, 0.22));
 }
 
-/*
- * Each page receives interpolated seasonal CSS variables from BookPage.
- * This lets the book move continuously from coastal summer blue to warm fall
- * without changing the actual memories or photo colours.
- */
 .seasonal-page {
   transition:
     background 700ms ease,
@@ -297,6 +291,249 @@ body::before {
   }
 }
 
+/* --------------------------------------------------------------------------
+   Chapter title pages
+   Each chapter gets its own visual language while keeping the scrapbook style.
+---------------------------------------------------------------------------- */
+.chapter-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--season-accent);
+}
+
+.seasonal-page[data-chapter] h1 {
+  position: relative;
+  z-index: 4;
+  text-shadow: 0 2px 18px color-mix(in srgb, var(--season-accent) 16%, transparent);
+}
+
+.seasonal-page[data-chapter] h1 + p {
+  position: relative;
+  z-index: 4;
+}
+
+/* Lake Trip — sunset, mountains, and gently moving water. */
+.chapter-lake {
+  background:
+    radial-gradient(circle at 76% 25%, color-mix(in srgb, #f6b66f 25%, transparent), transparent 20%),
+    linear-gradient(to bottom, color-mix(in srgb, #ffd7a4 11%, transparent), transparent 54%);
+}
+
+.chapter-lake-sun {
+  position: absolute;
+  right: 14%;
+  top: 18%;
+  width: 64px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 226, 160, 0.82), rgba(246, 168, 105, 0.22) 58%, transparent 72%);
+  box-shadow: 0 0 36px rgba(246, 177, 112, 0.22);
+  animation: chapter-sun-breathe 6.5s ease-in-out infinite;
+}
+
+.chapter-lake-mountains {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 21%;
+  width: 100%;
+  height: 30%;
+  opacity: 0.10;
+}
+
+.chapter-wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 46px;
+  border-top: 2px solid color-mix(in srgb, var(--season-accent) 28%, transparent);
+  border-radius: 50%;
+}
+
+.chapter-wave-1 {
+  bottom: 12%;
+  animation: chapter-wave-one 7s ease-in-out infinite;
+}
+
+.chapter-wave-2 {
+  bottom: 8%;
+  opacity: 0.7;
+  animation: chapter-wave-two 8.5s ease-in-out infinite;
+}
+
+.chapter-wave-3 {
+  bottom: 4%;
+  opacity: 0.45;
+  animation: chapter-wave-one 10s ease-in-out infinite reverse;
+}
+
+@keyframes chapter-sun-breathe {
+  0%, 100% { scale: 0.97; opacity: 0.82; }
+  50% { scale: 1.04; opacity: 1; }
+}
+
+@keyframes chapter-wave-one {
+  0%, 100% { transform: translateX(-1.5%) rotate(-1deg); }
+  50% { transform: translateX(1.5%) translateY(-4px) rotate(1deg); }
+}
+
+@keyframes chapter-wave-two {
+  0%, 100% { transform: translateX(1%) rotate(1deg); }
+  50% { transform: translateX(-1.5%) translateY(-3px) rotate(-1deg); }
+}
+
+/* Volleyball — a faint court with a living volleyball floating behind title. */
+.chapter-court {
+  position: absolute;
+  inset: 15% 10% 12%;
+  border: 2px solid color-mix(in srgb, var(--season-accent) 18%, transparent);
+  border-radius: 16px;
+  transform: perspective(500px) rotateX(62deg);
+  transform-origin: center 80%;
+  opacity: 0.8;
+}
+
+.chapter-net {
+  position: absolute;
+  left: 50%;
+  top: -6%;
+  bottom: -6%;
+  width: 2px;
+  background: color-mix(in srgb, var(--season-accent) 25%, transparent);
+}
+
+.chapter-court-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: color-mix(in srgb, var(--season-accent) 13%, transparent);
+}
+
+.chapter-court-line-left { left: 25%; }
+.chapter-court-line-right { right: 25%; }
+
+.chapter-volleyball-ball {
+  position: absolute;
+  right: 12%;
+  top: 17%;
+  width: 72px;
+  aspect-ratio: 1;
+  border: 2px solid color-mix(in srgb, var(--season-accent) 40%, transparent);
+  border-radius: 999px;
+  opacity: 0.34;
+  animation: volleyball-float 4.8s ease-in-out infinite;
+}
+
+.chapter-volleyball-ball span {
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  border-top: 2px solid color-mix(in srgb, var(--season-accent) 45%, transparent);
+  transform-origin: center;
+}
+
+.chapter-volleyball-ball span:nth-child(1) { transform: rotate(18deg); }
+.chapter-volleyball-ball span:nth-child(2) { transform: rotate(138deg); }
+.chapter-volleyball-ball span:nth-child(3) { transform: rotate(258deg); }
+
+@keyframes volleyball-float {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  45% { transform: translateY(-13px) rotate(8deg); }
+  70% { transform: translateY(-7px) rotate(2deg); }
+}
+
+/* Meals together — a soft dinner setting with steam and a heart on the plate. */
+.chapter-plate {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: 150px;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border: 2px solid color-mix(in srgb, var(--season-accent) 25%, transparent);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 18px color-mix(in srgb, var(--season-accent) 5%, transparent);
+  opacity: 0.68;
+}
+
+.chapter-plate-heart {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: cursive;
+  font-size: 30px;
+  opacity: 0.5;
+  animation: soft-heartbeat 3.2s ease-in-out infinite;
+}
+
+.chapter-fork {
+  position: absolute;
+  left: 19%;
+  bottom: 17%;
+  width: 16px;
+  height: 118px;
+  border-left: 2px solid color-mix(in srgb, var(--season-accent) 27%, transparent);
+  opacity: 0.65;
+}
+
+.chapter-fork span {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 25px;
+  background: color-mix(in srgb, var(--season-accent) 32%, transparent);
+}
+
+.chapter-fork span:nth-child(1) { left: 0; }
+.chapter-fork span:nth-child(2) { left: 4px; }
+.chapter-fork span:nth-child(3) { left: 8px; }
+.chapter-fork span:nth-child(4) { left: 12px; }
+
+.chapter-spoon {
+  position: absolute;
+  right: 20%;
+  bottom: 17%;
+  width: 17px;
+  height: 118px;
+  border-right: 2px solid color-mix(in srgb, var(--season-accent) 27%, transparent);
+  opacity: 0.65;
+}
+
+.chapter-spoon::before {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: -5px;
+  width: 15px;
+  height: 27px;
+  border: 2px solid color-mix(in srgb, var(--season-accent) 27%, transparent);
+  border-radius: 50%;
+}
+
+.chapter-steam {
+  position: absolute;
+  bottom: 46%;
+  width: 22px;
+  height: 60px;
+  border-left: 2px solid color-mix(in srgb, var(--season-accent) 18%, transparent);
+  border-radius: 50%;
+  opacity: 0.55;
+  animation: meal-steam 4.2s ease-in-out infinite;
+}
+
+.chapter-steam-1 { left: 43%; }
+.chapter-steam-2 { left: 50%; animation-delay: 0.9s; }
+.chapter-steam-3 { left: 57%; animation-delay: 1.7s; }
+
+@keyframes meal-steam {
+  0%, 100% { transform: translateY(8px) translateX(0) scaleY(0.85); opacity: 0.18; }
+  50% { transform: translateY(-8px) translateX(5px) scaleY(1.05); opacity: 0.58; }
+}
+
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid #4f7fa3;
@@ -322,6 +559,15 @@ a:focus-visible {
 
   .ocean-ambience {
     height: 19vh;
+  }
+
+  .chapter-volleyball-ball {
+    width: 58px;
+    right: 9%;
+  }
+
+  .chapter-plate {
+    width: 125px;
   }
 }
 
