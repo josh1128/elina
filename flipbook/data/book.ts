@@ -62,6 +62,8 @@ export type Page =
       caption?: string;
       date?: string;
       alt?: string;
+      objectPosition?: string;
+      featured?: boolean;
     }
   | {
       type: "collage";
@@ -116,17 +118,17 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
 
   // Page 6 — Cultus Lake
   {
-    type: "collage-note",
+    type: "photo-note",
+    src: "/photos/photo3.jpg",
     date: "June 20, 2026",
+    featured: true,
+    objectPosition: "center 36%",
+    alt: "Cultus Lake selfie together",
     body: `I remember being extremely nervous for the Cultus trip. I wanted it to be perfect so I planned it for days.
 
 I really enjoyed laying down with you and walking around talking about the different types of houses. Imagine how nice it would be to live in a comfy house like that one day by the beach with 2 cats.
 
 I’m looking forward to doing more lake trips with you.`,
-    photos: [
-      { src: "/photos/photo3.jpg", alt: "Cultus Lake selfie together", objectPosition: "center 38%" },
-      { src: "/photos/photo4.jpg", alt: "Picnic together at Cultus Lake", objectPosition: "center 20%" },
-    ],
   },
 
   // Text
@@ -201,18 +203,18 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     body: "Thank you for all the laughs, adventures, and memories.",
   },
 
-  // Page 18 — marathon
+  // Favourite photo of us — dressed up at the wharf
   {
     type: "photo-note",
     src: "/photos/photo17.jpg",
     date: "May 3, 2026",
     caption: "My favourite photo of us.",
-    body: `Running this marathon was tough. Before I met you, I would train 5 days a week, sometimes running 80 km per week, to be able to run this race.
+    body: `Running this marathon was tough. Before I met you, I would train 5 days a week, sometimes 80 km per week to be able to run this race.
 
-Throughout the race, I was cramping and I thought I wouldn’t be able to finish. But when I thought about you, it gave me the extra push to finish. I was more excited to see you that day than to get the actual medal.
+Throughout the race, I was cramping and I thought I wasn’t able to finish. But when I thought about you, it gave me the extra push to finish.
 
-Even though I was limping and had no energy, I would still make time to see you.`,
-    alt: "Together after the marathon",
+I was more excited to see you that day than getting the actual medal. Even though I was limping and had no energy, I would make time to see you.`,
+    alt: "Marathon day together",
   },
 
   // Final message (reveals the surprise)
