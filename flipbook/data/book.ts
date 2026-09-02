@@ -68,7 +68,7 @@ export type Page =
   | {
       type: "collage";
       heading?: string;
-      photos: { src: string; alt?: string }[];
+      photos: { src: string; alt?: string; objectPosition?: string }[];
     }
   | {
       type: "collage-note";
@@ -120,8 +120,16 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
   {
     type: "collage",
     photos: [
-      { src: "/photos/photo3.jpg", alt: "Cultus Lake selfie together" },
-      { src: "/photos/photo4.jpg", alt: "Picnic together at Cultus Lake" },
+      {
+        src: "/photos/photo3.jpg",
+        alt: "Cultus Lake selfie together",
+        objectPosition: "center 42%",
+      },
+      {
+        src: "/photos/photo4.jpg",
+        alt: "Picnic together at Cultus Lake",
+        objectPosition: "center 8%",
+      },
     ],
   },
 
