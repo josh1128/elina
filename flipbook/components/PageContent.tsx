@@ -205,6 +205,7 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
                 key={i}
                 src={p.src}
                 alt={p.alt}
+                objectPosition={p.objectPosition}
                 onZoom={onZoom}
                 className="min-h-0"
               />
