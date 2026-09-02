@@ -137,13 +137,20 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
         </div>
       );
 
-    case "photo-note":
+    case "photo-note": {
+      const featured = page.featured === true;
+
       return (
-        <div className="grid h-full min-h-0 grid-cols-[0.9fr_1.1fr] gap-4">
+        <div
+          className={`grid h-full min-h-0 gap-5 ${
+            featured ? "grid-cols-[1.08fr_0.92fr]" : "grid-cols-[0.9fr_1.1fr]"
+          }`}
+        >
           <div className="flex min-h-0 flex-col">
             <Photo
               src={page.src}
               alt={page.alt}
+              objectPosition={page.objectPosition}
               onZoom={onZoom}
               className="min-h-0 flex-1"
             />
@@ -157,11 +164,23 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
           <div className="min-h-0 overflow-y-auto pr-1">
             <div className="flex min-h-full flex-col justify-center py-1">
               {page.date && (
-                <p className="mb-4 font-serif text-xl text-blush-deep sm:text-2xl">
+                <p
+                  className={`font-serif text-blush-deep ${
+                    featured
+                      ? "mb-5 text-2xl sm:text-[1.8rem]"
+                      : "mb-4 text-xl sm:text-2xl"
+                  }`}
+                >
                   {page.date}
                 </p>
               )}
-              <div className="space-y-3 font-body text-[0.73rem] leading-[1.55] text-ink-soft sm:text-[0.82rem]">
+              <div
+                className={`font-body text-ink-soft ${
+                  featured
+                    ? "space-y-4 text-[0.9rem] leading-[1.75] sm:text-[1rem]"
+                    : "space-y-3 text-[0.73rem] leading-[1.55] sm:text-[0.82rem]"
+                }`}
+              >
                 {page.body.split("\n\n").map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -170,6 +189,7 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
           </div>
         </div>
       );
+    }
 
     case "collage":
       return (
