@@ -29,7 +29,6 @@ export default function MusicButton() {
         await audio.play();
         setPlaying(true);
       } catch {
-        // If the file is missing or blocked, fail quietly.
         setPlaying(false);
       }
     }
@@ -39,10 +38,10 @@ export default function MusicButton() {
     <button
       type="button"
       onClick={toggle}
-      className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-page/90 px-4 py-2 font-body text-sm text-ink shadow-md ring-1 ring-ink/10 backdrop-blur transition-colors hover:bg-cream"
+      className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full border border-soft-blue/80 bg-page/90 px-4 py-2 font-body text-sm text-navy shadow-coastal backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-white"
       aria-pressed={playing}
     >
-      <span aria-hidden>{playing ? "❚❚" : "♪"}</span>
+      <span className="text-dusty" aria-hidden>{playing ? "❚❚" : "♪"}</span>
       <span>{playing ? "Pause" : music.label}</span>
     </button>
   );
