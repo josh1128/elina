@@ -29,7 +29,7 @@ export default function Lightbox({ src, alt, onClose }: Props) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/70 p-6 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-navy/75 p-6 backdrop-blur-md"
           role="dialog"
           aria-modal="true"
         >
@@ -39,9 +39,9 @@ export default function Lightbox({ src, alt, onClose }: Props) {
             exit={{ scale: 0.92, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-h-[85vh] w-full max-w-3xl overflow-hidden rounded-md bg-page p-2 shadow-2xl"
+            className="relative max-h-[85vh] w-full max-w-3xl overflow-hidden rounded-2xl border border-soft-blue/60 bg-page p-2 shadow-page"
           >
-            <div className="relative h-[70vh] w-full">
+            <div className="relative h-[70vh] w-full overflow-hidden rounded-xl bg-cream">
               <Image
                 src={src}
                 alt={alt ?? ""}
@@ -53,7 +53,7 @@ export default function Lightbox({ src, alt, onClose }: Props) {
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-3 top-3 rounded-full bg-page/90 px-3 py-1 font-body text-sm text-ink shadow ring-1 ring-ink/10 hover:bg-cream"
+              className="absolute right-4 top-4 rounded-full border border-soft-blue/70 bg-page/90 px-3 py-1 font-body text-sm text-navy shadow-coastal backdrop-blur hover:bg-white"
               aria-label="Close"
             >
               Close
