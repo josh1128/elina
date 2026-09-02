@@ -105,6 +105,46 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
         </div>
       );
 
+    case "firsts":
+      return (
+        <div className="flex h-full min-h-0 flex-col px-1 py-1">
+          <div className="text-center">
+            <p className="font-hand text-lg text-dusty">the little beginnings ♡</p>
+            <h2 className="mt-1 font-serif text-4xl leading-none text-ink sm:text-[2.7rem]">
+              {page.title}
+            </h2>
+          </div>
+
+          <div className="relative mx-auto mt-5 min-h-0 w-full max-w-sm flex-1 overflow-y-auto pr-1">
+            <span
+              className="pointer-events-none absolute bottom-1 left-[4.45rem] top-1 w-px bg-soft-blue/90"
+              aria-hidden
+            />
+            <div className="space-y-2.5">
+              {page.items.map((item, index) => (
+                <div key={`${item.date}-${item.label}`} className="relative grid grid-cols-[4rem_1fr] gap-5">
+                  <p className="pt-0.5 text-right font-body text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-dusty sm:text-[0.78rem]">
+                    {item.date}
+                  </p>
+                  <span
+                    className="absolute left-[4.12rem] top-[0.42rem] h-2.5 w-2.5 rounded-full border-2 border-page bg-dusty shadow-sm"
+                    aria-hidden
+                  />
+                  <div className="min-w-0 pb-1">
+                    <p className="font-body text-[0.9rem] leading-snug text-ink-soft sm:text-[0.98rem]">
+                      {item.label}
+                    </p>
+                    {index === 0 && (
+                      <p className="mt-0.5 font-hand text-sm text-dusty/80">where it all started</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+
     case "photo":
       return (
         <div className="flex h-full flex-col">
