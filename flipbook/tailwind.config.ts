@@ -9,13 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm scrapbook palette
-        cream: "#F7F2E9", // background
-        page: "#FBF8F1", // paper
-        ink: "#3E2E27", // dark brown text
-        "ink-soft": "#6B564C", // muted brown
-        blush: "#E7B2AB", // soft pink accent
-        "blush-deep": "#D18E86",
+        // Soft coastal scrapbook palette
+        cream: "#EEF4F8", // pale blue background
+        page: "#F8FBFD", // blue-white paper
+        ink: "#183B56", // deep navy headings
+        "ink-soft": "#445B6B", // readable blue-grey body text
+        blush: "#BFD7E6", // soft blue accent (legacy token kept for components)
+        "blush-deep": "#4F7FA3", // accent blue
+        navy: "#183B56",
+        dusty: "#6F96B4",
+        "soft-blue": "#BFD7E6",
+        skywash: "#DCEAF3",
+        paperwarm: "#FFFDF8",
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Georgia", "serif"],
@@ -23,8 +28,9 @@ const config: Config = {
         hand: ["var(--font-caveat)", "cursive"],
       },
       boxShadow: {
-        page: "0 22px 45px -20px rgba(62, 46, 39, 0.45)",
-        photo: "0 6px 18px -8px rgba(62, 46, 39, 0.35)",
+        page: "0 24px 55px -20px rgba(39, 75, 100, 0.34)",
+        photo: "0 10px 26px -12px rgba(40, 76, 100, 0.30)",
+        coastal: "0 18px 48px rgba(39, 75, 100, 0.16)",
       },
     },
   },
