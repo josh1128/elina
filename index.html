@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4eee7" />
+    <title>Our Story ❤️</title>
+    <meta name="description" content="A little collection of our favourite memories." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="closedBook" class="intro" aria-label="Book cover">
+        <button id="openBook" class="cover-button" type="button" aria-label="Open our story">
+          <article class="cover-card">
+            <img src="/photos/cover.jpg" alt="A lakeside photo of us" />
+            <div class="cover-shade"></div>
+            <div class="cover-copy">
+              <span>For Elina</span>
+              <h1>Our Story ❤️</h1>
+              <p>A little collection of our favourite memories.</p>
+              <strong>Open</strong>
+            </div>
+          </article>
+        </button>
+      </section>
+
+      <section id="bookView" class="book-view" hidden>
+        <header class="toolbar">
+          <button id="closeBook" class="text-button" type="button">Close</button>
+          <div>
+            <h2>Our Story</h2>
+            <p id="counter">1 / 8</p>
+          </div>
+          <span class="toolbar-heart" aria-hidden="true">♡</span>
+        </header>
+
+        <div class="book-stage">
+          <div id="book" class="book" aria-live="polite">
+            <article class="page photo-page active" data-page="0">
+              <img src="/photos/cover.jpg" alt="Lakeside memory" />
+              <div class="photo-caption">
+                <small>Summer memory</small>
+                <h3>One of my favourite days with you.</h3>
+              </div>
+            </article>
+
+            <article class="page text-page" data-page="1">
+              <p class="eyebrow">A little note</p>
+              <h3>For all the moments I never want to forget.</h3>
+              <p>Thank you for making ordinary days feel special just because I get to spend them with you.</p>
+            </article>
+
+            <article class="page photo-page" data-page="2">
+              <img src="/photos/cover.jpg" alt="A favourite photo together" />
+              <div class="photo-caption">
+                <small>Us</small>
+                <h3>My favourite person.</h3>
+              </div>
+            </article>
+
+            <article class="page text-page" data-page="3">
+              <p class="eyebrow">The small things</p>
+              <h3>You somehow make everything more fun.</h3>
+              <p>The laughs, the random plans, the late talks, the quiet moments — those are the parts I love most.</p>
+            </article>
+
+            <article class="page photo-page" data-page="4">
+              <img src="/photos/cover.jpg" alt="Another favourite memory" />
+              <div class="photo-caption">
+                <small>More memories</small>
+                <h3>Still one of my favourite pictures of us.</h3>
+              </div>
+            </article>
+
+            <article class="page text-page" data-page="5">
+              <p class="eyebrow">Thank you</p>
+              <h3>For every laugh, adventure, and little memory.</h3>
+              <p>I hope this book keeps getting longer for a very, very long time.</p>
+            </article>
+
+            <article class="page text-page" data-page="6">
+              <p class="eyebrow">And we're only getting started</p>
+              <h3>There are still so many places to go and memories to make.</h3>
+              <p>I can't wait to experience all of them with you.</p>
+            </article>
+
+            <article class="page final-page" data-page="7">
+              <span class="big-heart">♡</span>
+              <h3>To be continued...</h3>
+              <p>I love you.</p>
+              <button id="surpriseButton" type="button">One last thing...</button>
+            </article>
+          </div>
+        </div>
+
+        <nav class="controls" aria-label="Flipbook navigation">
+          <button id="previous" type="button" aria-label="Previous page">← Previous</button>
+          <div class="progress"><span id="progressBar"></span></div>
+          <button id="next" type="button" aria-label="Next page">Next →</button>
+        </nav>
+        <p class="hint">Swipe on mobile or use the arrow keys.</p>
+      </section>
+
+      <div id="surprise" class="surprise" hidden>
+        <div class="surprise-card">
+          <div class="floating-hearts" aria-hidden="true">♡ ♡ ♡ ♡ ♡</div>
+          <p>One last thing...</p>
+          <h2>If I had to choose again,<br />I'd still choose you.</h2>
+          <strong>Every time. ❤️</strong>
+          <button id="closeSurprise" type="button">Close</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
