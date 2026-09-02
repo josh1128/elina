@@ -38,6 +38,12 @@ export type Page =
   | { type: "letter"; heading?: string; body: string; signature?: string }
   | { type: "text"; body: string }
   | { type: "firsts"; title: string; items: { date: string; label: string }[] }
+  | {
+      type: "cat-collage";
+      title?: string;
+      subtitle?: string;
+      photos: { src: string; alt?: string; objectPosition?: string }[];
+    }
   | { type: "photo"; src: string; caption?: string; date?: string; alt?: string }
   | {
       type: "photo-caption";
@@ -248,6 +254,33 @@ I was more excited to see you that day than getting the actual medal. Even thoug
   // Page 20 — final message
   { type: "final", title: "And we're only getting started." },
 
-  // Page 21 — the end
+  // Page 21 — all of our pictures arranged into a simple cat silhouette
+  {
+    type: "cat-collage",
+    title: "All our little memories. ♡",
+    subtitle: "and maybe two cats one day",
+    photos: [
+      { src: "/photos/our-first-cover.jpg", alt: "Our story cover memory" },
+      { src: "/photos/photo1.jpg" },
+      { src: "/photos/photo2.jpg" },
+      { src: "/photos/photo3.jpg", objectPosition: "center 42%" },
+      { src: "/photos/photo4.jpg", objectPosition: "center 8%" },
+      { src: "/photos/photo5.jpg" },
+      { src: "/photos/photo6.jpg" },
+      { src: "/photos/photo7.jpg" },
+      { src: "/photos/photo8.jpg" },
+      { src: "/photos/photo9.jpg" },
+      { src: "/photos/photo10.jpg" },
+      { src: "/photos/photo11.jpg" },
+      { src: "/photos/photo12.jpg" },
+      { src: "/photos/photo13.jpg" },
+      { src: "/photos/photo14.jpg" },
+      { src: "/photos/photo15.jpg" },
+      { src: "/photos/photo16.jpg" },
+      { src: "/photos/photo17.jpg" },
+    ],
+  },
+
+  // Page 22 — the end
   { type: "end", title: "To be continued... ❤️" },
 ];
