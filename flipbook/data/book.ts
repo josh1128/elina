@@ -60,6 +60,7 @@ export type Page =
       src: string;
       body: string;
       caption?: string;
+      date?: string;
       alt?: string;
     }
   | {
@@ -200,11 +201,18 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     body: "Thank you for all the laughs, adventures, and memories.",
   },
 
-  // Favourite photo of us — dressed up at the wharf
+  // Page 18 — marathon
   {
-    type: "photo-caption",
+    type: "photo-note",
     src: "/photos/photo17.jpg",
+    date: "May 3, 2026",
     caption: "My favourite photo of us.",
+    body: `Running this marathon was tough. Before I met you, I would train 5 days a week, sometimes running 80 km per week, to be able to run this race.
+
+Throughout the race, I was cramping and I thought I wouldn’t be able to finish. But when I thought about you, it gave me the extra push to finish. I was more excited to see you that day than to get the actual medal.
+
+Even though I was limping and had no energy, I would still make time to see you.`,
+    alt: "Together after the marathon",
   },
 
   // Final message (reveals the surprise)
