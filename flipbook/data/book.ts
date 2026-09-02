@@ -205,11 +205,19 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     caption: "Slow afternoons.",
   },
 
-  // Page 15 — picnic in the park
+  // Page 15 — birthday photo and note
   {
-    type: "photo-caption",
+    type: "photo-note",
     src: "/photos/photo12.jpg",
-    caption: "Sunlight and good company.",
+    date: "July 31, 2026",
+    caption: "Your birthday. ♡",
+    body: `Your birthday was one of the most memorable days for me because I got the chance to plan it for you.
+
+I drove 2 hours that day picking up stuff, and seeing you happy made me really happy too.
+
+I always want to make you happy.`,
+    alt: "Elina's birthday",
+    featured: true,
   },
 
   // Page 16 — drinks collage
