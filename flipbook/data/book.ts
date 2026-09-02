@@ -38,6 +38,7 @@ export const surprise = {
 // "text"         a short romantic line, centred
 // "photo"        one large photo (+ optional caption / date)
 // "photo-caption"one photo with a handwritten caption underneath
+// "photo-note"   one photo with a longer note beside it
 // "collage"      two photos side by side (+ optional heading)
 // "final"        the closing message that reveals the surprise button
 // "end"          the very last "to be continued" page
@@ -51,6 +52,13 @@ export type Page =
       src: string;
       caption: string;
       date?: string;
+      alt?: string;
+    }
+  | {
+      type: "photo-note";
+      src: string;
+      body: string;
+      caption?: string;
       alt?: string;
     }
   | {
@@ -107,11 +115,17 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
   // Text
   { type: "text", body: "You somehow make ordinary days feel special." },
 
-  // Game day
+  // Page 8 — volleyball
   {
-    type: "photo-caption",
+    type: "photo-note",
     src: "/photos/photo5.jpg",
-    caption: "Game day.",
+    caption: "You will always be my R2 partner. 🏐",
+    body: `Ever since I played against you, I’ve wanted to get to know you. You were a breath of fresh air, and I was thinking to myself what my first words were going to be, but you beat me to it. I got shy and forgot to ask for your Instagram, but I was lucky enough to find you on my own.
+
+Let’s get better at the sport together and win many tournaments. I promise you that we will win the BBL tournament one day since I know how much you like the shirt.
+
+You will always be my R2 partner. I will always be your biggest supporter, and no one will get as hyped as me when you get a kill.`,
+    alt: "Volleyball game day",
   },
 
   // Her, golden hour
