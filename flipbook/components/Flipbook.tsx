@@ -18,6 +18,7 @@ export default function Flipbook() {
   const [surpriseOpen, setSurpriseOpen] = useState(false);
 
   const total = pages.length;
+  const progress = Math.min(((current + 1) / total) * 100, 100);
 
   const flipNext = useCallback(() => {
     bookRef.current?.pageFlip()?.flipNext();
@@ -29,7 +30,7 @@ export default function Flipbook() {
   // Left / right arrow keys turn the pages.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (zoom || surpriseOpen) return; // let overlays own the keyboard
+      if (zoom || surpriseOpen) return;
       if (e.key === "ArrowRight") flipNext();
       if (e.key === "ArrowLeft") flipPrev();
     };
@@ -55,7 +56,7 @@ export default function Flipbook() {
           maxHeight={740}
           showCover={true}
           mobileScrollSupport={true}
-          maxShadowOpacity={0.3}
+          maxShadowOpacity={0.24}
           drawShadow={true}
           flippingTime={700}
           useMouseEvents={true}
@@ -75,29 +76,35 @@ export default function Flipbook() {
         </HTMLFlipBook>
       </div>
 
-      {/* Controls: previous / counter / next */}
-      <div className="mt-6 flex items-center gap-5">
+      <div className="mt-7 flex items-center gap-5 rounded-full border border-soft-blue/70 bg-page/75 px-4 py-2.5 shadow-coastal backdrop-blur-md">
         <button
           type="button"
           onClick={flipPrev}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-page text-ink shadow ring-1 ring-ink/10 transition-colors hover:bg-cream disabled:opacity-40"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-xl text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-blush-deep disabled:opacity-40"
           aria-label="Previous page"
         >
           ‹
         </button>
 
-        <span className="min-w-[64px] text-center font-body text-sm tracking-wide text-ink-soft">
+        <span className="min-w-[72px] text-center font-body text-sm tracking-[0.08em] text-dusty">
           {Math.min(current + 1, total)} / {total}
         </span>
 
         <button
           type="button"
           onClick={flipNext}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-page text-ink shadow ring-1 ring-ink/10 transition-colors hover:bg-cream disabled:opacity-40"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-xl text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-blush-deep disabled:opacity-40"
           aria-label="Next page"
         >
           ›
         </button>
+      </div>
+
+      <div className="mt-4 h-1.5 w-56 overflow-hidden rounded-full bg-page/75 ring-1 ring-soft-blue/60 sm:w-72">
+        <div
+          className="h-full rounded-full bg-dusty transition-[width] duration-500 ease-out"
+          style={{ width: `${progress}%` }}
+        />
       </div>
 
       <p className="mt-3 font-body text-xs italic text-ink-soft/70">
