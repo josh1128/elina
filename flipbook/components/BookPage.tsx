@@ -30,12 +30,61 @@ function CatPaw() {
   );
 }
 
+function ChapterScene({ theme }: { theme: "lake" | "volleyball" | "meals" }) {
+  if (theme === "lake") {
+    return (
+      <div className="chapter-scene chapter-lake" aria-hidden>
+        <span className="chapter-lake-sun" />
+        <svg className="chapter-lake-mountains" viewBox="0 0 500 170" preserveAspectRatio="none">
+          <path d="M0 145L92 70L145 112L218 38L290 118L356 60L500 145V170H0Z" fill="currentColor" />
+        </svg>
+        <span className="chapter-wave chapter-wave-1" />
+        <span className="chapter-wave chapter-wave-2" />
+        <span className="chapter-wave chapter-wave-3" />
+      </div>
+    );
+  }
+
+  if (theme === "volleyball") {
+    return (
+      <div className="chapter-scene chapter-volleyball" aria-hidden>
+        <div className="chapter-court">
+          <span className="chapter-net" />
+          <span className="chapter-court-line chapter-court-line-left" />
+          <span className="chapter-court-line chapter-court-line-right" />
+        </div>
+        <div className="chapter-volleyball-ball">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="chapter-scene chapter-meals" aria-hidden>
+      <div className="chapter-plate">
+        <span className="chapter-plate-heart">♡</span>
+      </div>
+      <div className="chapter-fork">
+        <span /><span /><span /><span />
+      </div>
+      <div className="chapter-spoon" />
+      <div className="chapter-steam chapter-steam-1" />
+      <div className="chapter-steam chapter-steam-2" />
+      <div className="chapter-steam chapter-steam-3" />
+    </div>
+  );
+}
+
 // react-pageflip passes a ref to each page; it must be a forwardRef component.
 const BookPage = forwardRef<HTMLDivElement, Props>(function BookPage(
   { page, index, total, onZoom, onSurprise, hard },
   ref
 ) {
   const season = getSeasonPalette(index, total);
+  const chapterTheme = page.type === "title" ? page.theme : undefined;
   const seasonalStyle = {
     background: `linear-gradient(145deg, ${season.page} 0%, ${season.pageGlow} 100%)`,
     "--season-ink": season.ink,
@@ -70,8 +119,11 @@ const BookPage = forwardRef<HTMLDivElement, Props>(function BookPage(
       style={seasonalStyle}
       data-density={hard ? "hard" : "soft"}
       data-season={season.label}
+      data-chapter={chapterTheme}
     >
       <div className="relative flex h-full w-full flex-col overflow-hidden p-6 sm:p-8">
+        {chapterTheme && <ChapterScene theme={chapterTheme} />}
+
         {pagePaws.map((pawStyle, pawIndex) => (
           <div
             key={pawIndex}
