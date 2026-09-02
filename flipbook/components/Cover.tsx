@@ -48,7 +48,7 @@ export default function Cover({ onOpen }: { onOpen: () => void }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.46, duration: 0.65 }}
-            className="mt-4 max-w-xs font-body text-base leading-relaxed text-white/88"
+            className="mt-4 max-w-xs font-body text-base leading-relaxed text-white/90"
           >
             {cover.subtitle}
           </motion.p>
@@ -60,7 +60,7 @@ export default function Cover({ onOpen }: { onOpen: () => void }) {
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onOpen}
-            className="mt-7 rounded-full border border-white/45 bg-white/14 px-7 py-2.5 font-serif text-base tracking-wide text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/24"
+            className="mt-7 rounded-full border border-white/40 bg-white/10 px-7 py-2.5 font-serif text-base tracking-wide text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/20"
           >
             {cover.openLabel} →
           </motion.button>
