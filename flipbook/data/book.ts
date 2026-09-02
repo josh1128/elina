@@ -116,23 +116,25 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     caption: "One of my favourite days with you.",
   },
 
-  // Page 6 — Cultus Lake
+  // Page 6 — Cultus Lake photos
   {
-    type: "photo-note",
-    src: "/photos/photo3.jpg",
-    date: "June 20, 2026",
-    featured: true,
-    objectPosition: "center 36%",
-    alt: "Cultus Lake selfie together",
+    type: "collage",
+    photos: [
+      { src: "/photos/photo3.jpg", alt: "Cultus Lake selfie together" },
+      { src: "/photos/photo4.jpg", alt: "Picnic together at Cultus Lake" },
+    ],
+  },
+
+  // Page 7 — Cultus Lake note
+  {
+    type: "letter",
+    heading: "June 20, 2026",
     body: `I remember being extremely nervous for the Cultus trip. I wanted it to be perfect so I planned it for days.
 
 I really enjoyed laying down with you and walking around talking about the different types of houses. Imagine how nice it would be to live in a comfy house like that one day by the beach with 2 cats.
 
 I’m looking forward to doing more lake trips with you.`,
   },
-
-  // Text
-  { type: "text", body: "You somehow make ordinary days feel special." },
 
   // Page 8 — volleyball
   {
