@@ -156,6 +156,11 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
 
           <div className="min-h-0 overflow-y-auto pr-1">
             <div className="flex min-h-full flex-col justify-center py-1">
+              {page.date && (
+                <p className="mb-4 font-serif text-xl text-blush-deep sm:text-2xl">
+                  {page.date}
+                </p>
+              )}
               <div className="space-y-3 font-body text-[0.73rem] leading-[1.55] text-ink-soft sm:text-[0.82rem]">
                 {page.body.split("\n\n").map((para, i) => (
                   <p key={i}>{para}</p>
