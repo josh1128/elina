@@ -108,8 +108,16 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     ],
   },
 
-  // Page 4 — opening line
-  { type: "text", body: "For all the moments I never want to forget." },
+  // Page 4 — first hike note, facing the photo on page 5
+  {
+    type: "letter",
+    heading: "July 5, 2026",
+    body: `This was our first hike together. I remember missing you so much that day because you had gone raving the night before, and I kept wishing I was there with you, giving you shoulder rides.
+
+When you told me you still wanted to hike with me after spending the whole night raving, that’s when I knew you were just as crazy as I am. It’s hard to find someone who can match my energy, especially since I’m such an adrenaline junkie.
+
+In that moment, I knew we were going to have so much fun together, going on hikes, chasing adventures, and making a lot of crazy memories along the way.`,
+  },
 
   // Page 5 — the beginning
   {
