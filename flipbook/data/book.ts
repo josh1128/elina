@@ -40,6 +40,7 @@ export const surprise = {
 // "photo-caption"one photo with a handwritten caption underneath
 // "photo-note"   one photo with a longer note beside it
 // "collage"      two photos side by side (+ optional heading)
+// "collage-note" two photos beside a dated memory note
 // "final"        the closing message that reveals the surprise button
 // "end"          the very last "to be continued" page
 export type Page =
@@ -65,6 +66,12 @@ export type Page =
       type: "collage";
       heading?: string;
       photos: { src: string; alt?: string }[];
+    }
+  | {
+      type: "collage-note";
+      date: string;
+      body: string;
+      photos: { src: string; alt?: string; objectPosition?: string }[];
     }
   | { type: "final"; title: string; body?: string }
   | { type: "end"; title: string };
@@ -106,10 +113,19 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     caption: "One of my favourite days with you.",
   },
 
-  // Two-photo spread — beach + picnic
+  // Page 6 — Cultus Lake
   {
-    type: "collage",
-    photos: [{ src: "/photos/photo3.jpg" }, { src: "/photos/photo4.jpg" }],
+    type: "collage-note",
+    date: "June 20, 2026",
+    body: `I remember being extremely nervous for the Cultus trip. I wanted it to be perfect so I planned it for days.
+
+I really enjoyed laying down with you and walking around talking about the different types of houses. Imagine how nice it would be to live in a comfy house like that one day by the beach with 2 cats.
+
+I’m looking forward to doing more lake trips with you.`,
+    photos: [
+      { src: "/photos/photo3.jpg", alt: "Cultus Lake selfie together", objectPosition: "center 38%" },
+      { src: "/photos/photo4.jpg", alt: "Picnic together at Cultus Lake", objectPosition: "center 20%" },
+    ],
   },
 
   // Text
