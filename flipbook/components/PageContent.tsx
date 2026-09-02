@@ -16,11 +16,13 @@ function Photo({
   alt,
   onZoom,
   className = "",
+  objectPosition,
 }: {
   src: string;
   alt?: string;
   onZoom: Props["onZoom"];
   className?: string;
+  objectPosition?: string;
 }) {
   return (
     <button
@@ -37,6 +39,7 @@ function Photo({
         alt={alt ?? ""}
         fill
         sizes="(max-width: 768px) 90vw, 40vw"
+        style={objectPosition ? { objectPosition } : undefined}
         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
       />
     </button>
@@ -181,6 +184,37 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
                 className="min-h-0"
               />
             ))}
+          </div>
+        </div>
+      );
+
+    case "collage-note":
+      return (
+        <div className="grid h-full min-h-0 grid-cols-[0.92fr_1.08fr] gap-4">
+          <div className="grid min-h-0 grid-rows-2 gap-3">
+            {page.photos.slice(0, 2).map((p, i) => (
+              <Photo
+                key={i}
+                src={p.src}
+                alt={p.alt}
+                objectPosition={p.objectPosition}
+                onZoom={onZoom}
+                className="min-h-0"
+              />
+            ))}
+          </div>
+
+          <div className="min-h-0 overflow-y-auto pr-1">
+            <div className="flex min-h-full flex-col justify-center py-1">
+              <p className="mb-4 font-serif text-xl text-blush-deep sm:text-2xl">
+                {page.date}
+              </p>
+              <div className="space-y-3 font-body text-[0.7rem] leading-[1.55] text-ink-soft sm:text-[0.8rem]">
+                {page.body.split("\n\n").map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       );
