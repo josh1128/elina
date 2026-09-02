@@ -134,6 +134,35 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
         </div>
       );
 
+    case "photo-note":
+      return (
+        <div className="grid h-full min-h-0 grid-cols-[0.9fr_1.1fr] gap-4">
+          <div className="flex min-h-0 flex-col">
+            <Photo
+              src={page.src}
+              alt={page.alt}
+              onZoom={onZoom}
+              className="min-h-0 flex-1"
+            />
+            {page.caption && (
+              <p className="mt-3 text-center font-hand text-xl leading-tight text-ink">
+                {page.caption}
+              </p>
+            )}
+          </div>
+
+          <div className="min-h-0 overflow-y-auto pr-1">
+            <div className="flex min-h-full flex-col justify-center py-1">
+              <div className="space-y-3 font-body text-[0.73rem] leading-[1.55] text-ink-soft sm:text-[0.82rem]">
+                {page.body.split("\n\n").map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+
     case "collage":
       return (
         <div className="flex h-full flex-col">
