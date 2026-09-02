@@ -145,6 +145,104 @@ export default function PageContent({ page, onZoom, onSurprise }: Props) {
         </div>
       );
 
+    case "cat-collage": {
+      const slots = [
+        { left: "20%", top: "5%", width: "13%", height: "11%", rotate: -14 },
+        { left: "27%", top: "14%", width: "13%", height: "11%", rotate: -8 },
+        { left: "38%", top: "16%", width: "13%", height: "11%", rotate: -2 },
+        { left: "50%", top: "16%", width: "13%", height: "11%", rotate: 2 },
+        { left: "61%", top: "14%", width: "13%", height: "11%", rotate: 8 },
+        { left: "68%", top: "5%", width: "13%", height: "11%", rotate: 14 },
+        { left: "14%", top: "28%", width: "13%", height: "11%", rotate: -9 },
+        { left: "74%", top: "28%", width: "13%", height: "11%", rotate: 9 },
+        { left: "11%", top: "42%", width: "13%", height: "11%", rotate: -5 },
+        { left: "77%", top: "42%", width: "13%", height: "11%", rotate: 5 },
+        { left: "27%", top: "50%", width: "13%", height: "11%", rotate: -3 },
+        { left: "60%", top: "50%", width: "13%", height: "11%", rotate: 3 },
+        { left: "21%", top: "61%", width: "13%", height: "11%", rotate: -5 },
+        { left: "66%", top: "61%", width: "13%", height: "11%", rotate: 5 },
+        { left: "25%", top: "75%", width: "13%", height: "11%", rotate: -4 },
+        { left: "43%", top: "81%", width: "13%", height: "11%", rotate: 0 },
+        { left: "61%", top: "75%", width: "13%", height: "11%", rotate: 4 },
+        { left: "81%", top: "61%", width: "13%", height: "11%", rotate: 9 },
+      ];
+
+      return (
+        <div className="flex h-full min-h-0 flex-col">
+          <div className="shrink-0 text-center">
+            {page.title && (
+              <h2 className="font-serif text-2xl leading-tight text-navy sm:text-3xl">
+                {page.title}
+              </h2>
+            )}
+            {page.subtitle && (
+              <p className="mt-1 font-hand text-base text-dusty sm:text-lg">
+                {page.subtitle}
+              </p>
+            )}
+          </div>
+
+          <div className="relative mx-auto mt-3 min-h-0 w-full max-w-[410px] flex-1 overflow-hidden rounded-2xl">
+            <svg
+              viewBox="0 0 500 560"
+              className="pointer-events-none absolute inset-0 h-full w-full text-dusty opacity-[0.16]"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M142 142L188 54L220 146M358 142L312 54L280 146M142 142C100 160 84 205 92 258C99 309 124 332 154 347C121 371 101 410 107 452C115 504 164 526 250 526C336 526 385 504 393 452C399 410 379 371 346 347C376 332 401 309 408 258C416 205 400 160 358 142C326 128 291 124 250 124C209 124 174 128 142 142Z"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M394 395C455 392 469 353 447 322C436 307 418 303 402 312"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M217 254H217.5M283 254H283.5M238 290C247 299 253 299 262 290"
+                stroke="currentColor"
+                strokeWidth="7"
+                strokeLinecap="round"
+              />
+            </svg>
+
+            {page.photos.slice(0, slots.length).map((photo, index) => {
+              const slot = slots[index];
+              return (
+                <div
+                  key={`${photo.src}-${index}`}
+                  className="absolute z-10"
+                  style={{
+                    left: slot.left,
+                    top: slot.top,
+                    width: slot.width,
+                    height: slot.height,
+                    transform: `rotate(${slot.rotate}deg)`,
+                  }}
+                >
+                  <Photo
+                    src={photo.src}
+                    alt={photo.alt ?? `Memory ${index + 1}`}
+                    objectPosition={photo.objectPosition}
+                    onZoom={onZoom}
+                    className="h-full w-full rounded-md shadow-sm ring-1 ring-white/70"
+                  />
+                </div>
+              );
+            })}
+
+            <div className="pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 text-center text-dusty/70" aria-hidden>
+              <span className="font-hand text-lg">♡</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     case "photo":
       return (
         <div className="flex h-full flex-col">
