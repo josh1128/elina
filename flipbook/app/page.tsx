@@ -20,6 +20,14 @@ export default function Home() {
 
   return (
     <main className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-8">
+      <div className="sunset-ambience" aria-hidden />
+      <div className="sunset-orb" aria-hidden />
+      <div className="ocean-ambience" aria-hidden>
+        <div className="wave-layer wave-back" />
+        <div className="wave-layer wave-middle" />
+        <div className="wave-layer wave-front" />
+      </div>
+
       <AnimatePresence mode="wait">
         {!opened ? (
           <motion.div
@@ -28,7 +36,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full"
+            className="relative z-10 w-full"
           >
             <Cover onOpen={() => setOpened(true)} />
           </motion.div>
@@ -38,7 +46,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="w-full"
+            className="relative z-10 w-full"
           >
             <Flipbook />
           </motion.div>
