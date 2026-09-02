@@ -14,15 +14,15 @@ export default function Cover({ onOpen }: { onOpen: () => void }) {
         className="relative aspect-[3/4] w-full max-w-[430px] overflow-hidden rounded-[28px] bg-navy shadow-page ring-1 ring-soft-blue/80"
       >
         <Image
-          src="/photos/photo3.jpg"
-          alt="Josh and Elina by the lake"
+          src="/photos/our-first-cover.jpg"
+          alt="Josh and Elina — one of our first memories"
           fill
           priority
           sizes="(max-width: 640px) 92vw, 430px"
-          className="object-cover object-center"
+          className="object-cover object-center grayscale"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C283E]/90 via-[#183B56]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C283E]/90 via-[#183B56]/15 to-transparent" />
         <div className="pointer-events-none absolute inset-3 rounded-[22px] border border-white/25" />
 
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-start px-8 pb-9 text-left text-white sm:px-10 sm:pb-11">
