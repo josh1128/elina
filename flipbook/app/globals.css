@@ -44,6 +44,42 @@ body::before {
   filter: drop-shadow(0 30px 42px rgba(39, 75, 100, 0.22));
 }
 
+/*
+ * Each page receives interpolated seasonal CSS variables from BookPage.
+ * This lets the book move continuously from coastal summer blue to warm fall
+ * without changing the actual memories or photo colours.
+ */
+.seasonal-page {
+  transition:
+    background 700ms ease,
+    color 700ms ease;
+}
+
+.seasonal-page .text-ink {
+  color: var(--season-ink) !important;
+}
+
+.seasonal-page .text-ink-soft {
+  color: var(--season-ink-soft) !important;
+}
+
+.seasonal-page .text-blush-deep,
+.seasonal-page .text-dusty {
+  color: var(--season-accent) !important;
+}
+
+.seasonal-page .border-blush {
+  border-color: var(--season-accent) !important;
+}
+
+.seasonal-page .hover\:bg-blush:hover {
+  background-color: var(--season-accent) !important;
+}
+
+.seasonal-page [class~="ring-ink/10"] {
+  --tw-ring-color: color-mix(in srgb, var(--season-accent) 28%, transparent);
+}
+
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid #4f7fa3;
