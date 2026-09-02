@@ -80,11 +80,249 @@ body::before {
   --tw-ring-color: color-mix(in srgb, var(--season-accent) 28%, transparent);
 }
 
+/* Tiny seasonal cat paws quietly wander through the book. */
+.page-cat-paw {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  opacity: 0.07;
+  animation: cat-paw-breathe 5.8s ease-in-out infinite;
+}
+
+.page-cat-paw-2 {
+  width: 18px;
+  height: 18px;
+  animation-delay: 2.1s;
+  animation-duration: 6.6s;
+}
+
+@keyframes cat-paw-breathe {
+  0%,
+  100% {
+    opacity: 0.055;
+    translate: 0 0;
+    scale: 0.96;
+  }
+  50% {
+    opacity: 0.15;
+    translate: 0 -3px;
+    scale: 1.035;
+  }
+}
+
+/* Hearts should feel alive, but never distract from the writing. */
+.seasonal-page .mt-7 > span.text-base,
+.seasonal-page div[aria-hidden] > span.font-hand.text-lg,
+.seasonal-page p.mt-5.font-hand.text-xl {
+  display: inline-block;
+  transform-origin: center;
+  animation: soft-heartbeat 3.2s ease-in-out infinite;
+}
+
+@keyframes soft-heartbeat {
+  0%,
+  46%,
+  100% {
+    scale: 1;
+    opacity: 0.82;
+  }
+  12% {
+    scale: 1.1;
+    opacity: 1;
+  }
+  22% {
+    scale: 1.02;
+    opacity: 0.9;
+  }
+  31% {
+    scale: 1.07;
+    opacity: 1;
+  }
+}
+
+.season-ornament {
+  animation: ornament-float 6.5s ease-in-out infinite;
+}
+
+@keyframes ornament-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -2px;
+  }
+}
+
+/* Warm moving sunset light behind the book. */
+.sunset-ambience {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(255, 209, 147, 0.42), transparent 18%),
+    radial-gradient(circle at 71% 28%, rgba(244, 159, 120, 0.24), transparent 29%),
+    linear-gradient(
+      180deg,
+      rgba(255, 232, 202, 0.24) 0%,
+      rgba(255, 198, 166, 0.17) 34%,
+      rgba(160, 198, 220, 0.08) 62%,
+      rgba(95, 157, 199, 0.14) 100%
+    );
+  animation: sunset-breathe 11s ease-in-out infinite;
+}
+
+.sunset-orb {
+  position: fixed;
+  right: 9vw;
+  top: 7vh;
+  z-index: 0;
+  width: clamp(90px, 12vw, 170px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 226, 165, 0.5) 0%,
+    rgba(255, 177, 120, 0.26) 45%,
+    rgba(255, 157, 112, 0) 74%
+  );
+  filter: blur(2px);
+  animation: sunset-orb-float 9s ease-in-out infinite;
+}
+
+@keyframes sunset-breathe {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sunset-orb-float {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 0.98;
+    opacity: 0.78;
+  }
+  50% {
+    translate: -5px 7px;
+    scale: 1.04;
+    opacity: 1;
+  }
+}
+
+/* Layered water at the bottom of the screen gives the book a living coastline. */
+.ocean-ambience {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 0;
+  height: clamp(135px, 24vh, 250px);
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.88;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 26%, #000 55%);
+}
+
+.wave-layer {
+  position: absolute;
+  left: -12%;
+  width: 124%;
+  border-radius: 48% 52% 0 0 / 35% 42% 0 0;
+  background-repeat: repeat-x;
+  will-change: transform;
+}
+
+.wave-back {
+  bottom: -42px;
+  height: 145px;
+  background:
+    radial-gradient(ellipse at 50% 4%, rgba(255, 243, 220, 0.2) 0 8%, transparent 9%) 0 0 / 130px 42px repeat-x,
+    linear-gradient(180deg, rgba(119, 182, 214, 0.22), rgba(79, 142, 183, 0.28));
+  animation: wave-drift-back 12s ease-in-out infinite;
+}
+
+.wave-middle {
+  bottom: -64px;
+  height: 148px;
+  background:
+    radial-gradient(ellipse at 50% 3%, rgba(255, 249, 235, 0.2) 0 7%, transparent 8%) 0 0 / 105px 36px repeat-x,
+    linear-gradient(180deg, rgba(93, 162, 201, 0.21), rgba(65, 126, 169, 0.31));
+  animation: wave-drift-middle 9s ease-in-out infinite;
+}
+
+.wave-front {
+  bottom: -88px;
+  height: 160px;
+  background:
+    radial-gradient(ellipse at 50% 2%, rgba(255, 250, 238, 0.22) 0 6%, transparent 7%) 0 0 / 88px 31px repeat-x,
+    linear-gradient(180deg, rgba(77, 147, 189, 0.18), rgba(48, 111, 157, 0.34));
+  animation: wave-drift-front 7.5s ease-in-out infinite;
+}
+
+@keyframes wave-drift-back {
+  0%,
+  100% {
+    transform: translate3d(-1.5%, 0, 0) rotate(-0.25deg);
+  }
+  50% {
+    transform: translate3d(1.5%, -6px, 0) rotate(0.25deg);
+  }
+}
+
+@keyframes wave-drift-middle {
+  0%,
+  100% {
+    transform: translate3d(1.7%, 0, 0) rotate(0.2deg);
+  }
+  50% {
+    transform: translate3d(-1.7%, -8px, 0) rotate(-0.25deg);
+  }
+}
+
+@keyframes wave-drift-front {
+  0%,
+  100% {
+    transform: translate3d(-1%, 0, 0);
+  }
+  50% {
+    transform: translate3d(1%, -5px, 0);
+  }
+}
+
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid #4f7fa3;
   outline-offset: 3px;
   border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .page-cat-paw {
+    width: 17px;
+    height: 17px;
+  }
+
+  .page-cat-paw-2 {
+    width: 15px;
+    height: 15px;
+  }
+
+  .sunset-orb {
+    right: -8px;
+    top: 5vh;
+  }
+
+  .ocean-ambience {
+    height: 19vh;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
