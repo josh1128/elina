@@ -34,7 +34,12 @@ export const surprise = {
 
 // ---- Page types ------------------------------------------------------------
 export type Page =
-  | { type: "title"; title: string; subtitle?: string }
+  | {
+      type: "title";
+      title: string;
+      subtitle?: string;
+      theme?: "lake" | "volleyball" | "meals";
+    }
   | { type: "letter"; heading?: string; body: string; signature?: string }
   | { type: "text"; body: string }
   | { type: "firsts"; title: string; items: { date: string; label: string }[] }
@@ -78,7 +83,6 @@ export type Page =
 
 // ---- The pages, in order ---------------------------------------------------
 export const pages: Page[] = [
-  // Page 1 — opening letter
   {
     type: "letter",
     heading: "Elina,",
@@ -92,10 +96,8 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     signature: "Forever yours,\nJosh",
   },
 
-  // Page 2 — title
   { type: "title", title: "Our Story ❤️", subtitle: "For us." },
 
-  // Page 3 — Our Firsts timeline
   {
     type: "firsts",
     title: "Our Firsts",
@@ -114,7 +116,6 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     ],
   },
 
-  // Page 4 — first hike note, facing the photo on page 5
   {
     type: "letter",
     heading: "July 5, 2026",
@@ -125,7 +126,6 @@ When you told me you still wanted to hike with me after spending the whole night
 In that moment, I knew we were going to have so much fun together, going on hikes, chasing adventures, and making a lot of crazy memories along the way.`,
   },
 
-  // Page 5 — the beginning
   {
     type: "photo-caption",
     src: "/photos/photo1.jpg",
@@ -133,14 +133,20 @@ In that moment, I knew we were going to have so much fun together, going on hike
     date: "Just the two of us, and a whole view",
   },
 
-  // Page 6 — close selfie
   {
     type: "photo-caption",
     src: "/photos/photo2.jpg",
     caption: "One of my favourite days with you.",
   },
 
-  // Page 7 — Cultus Lake photo with the note moved from page 8
+  // Lake Trip chapter
+  {
+    type: "title",
+    title: "Lake Trip",
+    subtitle: "June 20, 2026 • Cultus Lake",
+    theme: "lake",
+  },
+
   {
     type: "photo-note",
     src: "/photos/photo3.jpg",
@@ -155,14 +161,20 @@ I’m looking forward to doing more lake trips with you.`,
     featured: true,
   },
 
-  // Page 8 — second Cultus Lake photo enlarged to fill the page
   {
     type: "photo",
     src: "/photos/photo4.jpg",
     alt: "Picnic together at Cultus Lake",
   },
 
-  // Page 9 — volleyball
+  // Volleyball chapter
+  {
+    type: "title",
+    title: "Volleyball",
+    subtitle: "My favourite R2 partner 🏐",
+    theme: "volleyball",
+  },
+
   {
     type: "photo-note",
     src: "/photos/photo5.jpg",
@@ -175,37 +187,39 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     alt: "Volleyball game day",
   },
 
-  // Page 10 — her, golden hour
   {
     type: "photo-caption",
     src: "/photos/photo6.jpg",
     caption: "You.",
   },
 
-  // Page 11 — food collage
+  // Meals together chapter
+  {
+    type: "title",
+    title: "Meals together",
+    subtitle: "Our favourite dates, one plate at a time.",
+    theme: "meals",
+  },
+
   {
     type: "collage",
     heading: "The meals we still talk about.",
     photos: [{ src: "/photos/photo7.jpg" }, { src: "/photos/photo8.jpg" }],
   },
 
-  // Page 12 — food collage
   {
     type: "collage",
     photos: [{ src: "/photos/photo9.jpg" }, { src: "/photos/photo10.jpg" }],
   },
 
-  // Page 13 — text
   { type: "text", body: "Every day with you is my favourite kind of day." },
 
-  // Page 14 — cafe candid
   {
     type: "photo-caption",
     src: "/photos/photo11.jpg",
     caption: "Slow afternoons.",
   },
 
-  // Page 15 — birthday photo and note
   {
     type: "photo-note",
     src: "/photos/photo12.jpg",
@@ -220,27 +234,23 @@ I always want to make you happy.`,
     featured: true,
   },
 
-  // Page 16 — drinks collage
   {
     type: "collage",
     photos: [{ src: "/photos/photo13.jpg" }, { src: "/photos/photo14.jpg" }],
   },
 
-  // Page 17 — favourite memories
   {
     type: "collage",
     heading: "Some of my favourite memories.",
     photos: [{ src: "/photos/photo15.jpg" }, { src: "/photos/photo16.jpg" }],
   },
 
-  // Page 18 — full marathon photo on the left side of the spread
   {
     type: "photo",
     src: "/photos/photo17.jpg",
     alt: "Marathon day together",
   },
 
-  // Page 19 — marathon note on the right side of the spread
   {
     type: "letter",
     heading: "May 3, 2026",
@@ -251,10 +261,8 @@ Throughout the race, I was cramping and I thought I wasn’t able to finish. But
 I was more excited to see you that day than getting the actual medal. Even though I was limping and had no energy, I would make time to see you.`,
   },
 
-  // Page 20 — final message
   { type: "final", title: "And we're only getting started." },
 
-  // Page 21 — all of our pictures arranged into a simple cat silhouette
   {
     type: "cat-collage",
     title: "All our little memories. ♡",
@@ -281,6 +289,5 @@ I was more excited to see you that day than getting the actual medal. Even thoug
     ],
   },
 
-  // Page 22 — the end
   { type: "end", title: "To be continued... ❤️" },
 ];
