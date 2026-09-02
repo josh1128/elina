@@ -72,7 +72,7 @@ export type Page =
 
 // ---- The pages, in order ---------------------------------------------------
 export const pages: Page[] = [
-  // A note at the very start
+  // Page 1 — opening letter
   {
     type: "letter",
     heading: "Elina,",
@@ -86,10 +86,10 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     signature: "Forever yours,\nJosh",
   },
 
-  // Title
+  // Page 2 — title
   { type: "title", title: "Our Story ❤️", subtitle: "For us." },
 
-  // Our Firsts timeline
+  // Page 3 — Our Firsts timeline
   {
     type: "firsts",
     title: "Our Firsts",
@@ -108,10 +108,10 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     ],
   },
 
-  // Opening line
+  // Page 4 — opening line
   { type: "text", body: "For all the moments I never want to forget." },
 
-  // The beginning — Deep Cove overlook
+  // Page 5 — the beginning
   {
     type: "photo-caption",
     src: "/photos/photo1.jpg",
@@ -119,14 +119,14 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     date: "Just the two of us, and a whole view",
   },
 
-  // Close selfie
+  // Page 6 — close selfie
   {
     type: "photo-caption",
     src: "/photos/photo2.jpg",
     caption: "One of my favourite days with you.",
   },
 
-  // Cultus Lake photos
+  // Page 7 — Cultus Lake photos
   {
     type: "collage",
     photos: [
@@ -143,7 +143,7 @@ Take pride in yourself. You are beautiful, caring, spontaneous, kind and funny. 
     ],
   },
 
-  // Cultus Lake note
+  // Page 8 — Cultus Lake note
   {
     type: "letter",
     heading: "June 20, 2026",
@@ -154,7 +154,7 @@ I really enjoyed laying down with you and walking around talking about the diffe
 I’m looking forward to doing more lake trips with you.`,
   },
 
-  // Volleyball
+  // Page 9 — volleyball
   {
     type: "photo-note",
     src: "/photos/photo5.jpg",
@@ -167,79 +167,77 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     alt: "Volleyball game day",
   },
 
-  // Her, golden hour
+  // Page 10 — her, golden hour
   {
     type: "photo-caption",
     src: "/photos/photo6.jpg",
     caption: "You.",
   },
 
-  // Food collage
+  // Page 11 — food collage
   {
     type: "collage",
     heading: "The meals we still talk about.",
     photos: [{ src: "/photos/photo7.jpg" }, { src: "/photos/photo8.jpg" }],
   },
 
-  // Food collage
+  // Page 12 — food collage
   {
     type: "collage",
     photos: [{ src: "/photos/photo9.jpg" }, { src: "/photos/photo10.jpg" }],
   },
 
-  // Text
+  // Page 13 — text
   { type: "text", body: "Every day with you is my favourite kind of day." },
 
-  // Cafe candid
+  // Page 14 — cafe candid
   {
     type: "photo-caption",
     src: "/photos/photo11.jpg",
     caption: "Slow afternoons.",
   },
 
-  // Picnic in the park
+  // Page 15 — picnic in the park
   {
     type: "photo-caption",
     src: "/photos/photo12.jpg",
     caption: "Sunlight and good company.",
   },
 
-  // Drinks collage
+  // Page 16 — drinks collage
   {
     type: "collage",
     photos: [{ src: "/photos/photo13.jpg" }, { src: "/photos/photo14.jpg" }],
   },
 
-  // Favourite memories — photobooth + the reflection
+  // Page 17 — favourite memories
   {
     type: "collage",
     heading: "Some of my favourite memories.",
     photos: [{ src: "/photos/photo15.jpg" }, { src: "/photos/photo16.jpg" }],
   },
 
-  // Text
+  // Page 18 — full marathon photo on the left side of the spread
   {
-    type: "text",
-    body: "Thank you for all the laughs, adventures, and memories.",
+    type: "photo",
+    src: "/photos/photo17.jpg",
+    alt: "Marathon day together",
   },
 
-  // Marathon day
+  // Page 19 — marathon note on the right side of the spread
   {
-    type: "photo-note",
-    src: "/photos/photo17.jpg",
-    date: "May 3, 2026",
-    caption: "My favourite photo of us.",
+    type: "letter",
+    heading: "May 3, 2026",
     body: `Running this marathon was tough. Before I met you, I would train 5 days a week, sometimes 80 km per week to be able to run this race.
 
 Throughout the race, I was cramping and I thought I wasn’t able to finish. But when I thought about you, it gave me the extra push to finish.
 
 I was more excited to see you that day than getting the actual medal. Even though I was limping and had no energy, I would make time to see you.`,
-    alt: "Marathon day together",
   },
 
-  // Final message (reveals the surprise)
+  // Page 20 — final message
   { type: "final", title: "And we're only getting started." },
 
-  // The end
+  // Page 21 — the end
   { type: "end", title: "To be continued... ❤️" },
 ];
