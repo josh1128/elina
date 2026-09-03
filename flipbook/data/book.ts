@@ -11,28 +11,23 @@
 //  Photo paths are relative to /public, e.g. "/photos/photo1.jpg".
 // ============================================================================
 
-// ---- The opening cover (shown before the book is opened) -------------------
 export const cover = {
   title: "Our Story ❤️",
   subtitle: "A little collection of our favourite memories.",
   openLabel: "Open",
 };
 
-// ---- Background music (optional) -------------------------------------------
-// Put a file at /public/music/song.mp3. Set enabled to false to hide the button.
 export const music = {
   enabled: true,
   src: "/music/song.mp3",
   label: "Play our song",
 };
 
-// ---- The final surprise on the last message page ---------------------------
 export const surprise = {
   buttonLabel: "One last thing...",
   lines: ["If I had to choose again,", "I'd still choose you.", "Every time. ❤️"],
 };
 
-// ---- Page types ------------------------------------------------------------
 export type Page =
   | {
       type: "title";
@@ -81,7 +76,6 @@ export type Page =
   | { type: "final"; title: string; body?: string }
   | { type: "end"; title: string };
 
-// ---- The pages, in order ---------------------------------------------------
 export const pages: Page[] = [
   {
     type: "letter",
@@ -139,7 +133,6 @@ In that moment, I knew we were going to have so much fun together, going on hike
     caption: "One of my favourite days with you.",
   },
 
-  // Lake Trip chapter
   {
     type: "title",
     title: "Lake Trip",
@@ -167,7 +160,6 @@ I’m looking forward to doing more lake trips with you.`,
     alt: "Picnic together at Cultus Lake",
   },
 
-  // Volleyball chapter
   {
     type: "title",
     title: "Volleyball",
@@ -193,7 +185,6 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     caption: "You.",
   },
 
-  // Meals together chapter
   {
     type: "title",
     title: "Meals together",
@@ -210,6 +201,22 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
   {
     type: "collage",
     photos: [{ src: "/photos/photo9.jpg" }, { src: "/photos/photo10.jpg" }],
+  },
+
+  {
+    type: "collage",
+    heading: "More meals with you.",
+    photos: [
+      { src: "/photos/meals-5.jpg", alt: "Spicy seafood noodle soup" },
+      { src: "/photos/meals-6.jpg", alt: "Pork and lettuce wrap meal" },
+    ],
+  },
+
+  {
+    type: "photo-caption",
+    src: "/photos/meals-7.jpg",
+    caption: "Good food always tastes better with you. ♡",
+    alt: "BBQ, fries, and cornbread meal",
   },
 
   { type: "text", body: "Every day with you is my favourite kind of day." },
@@ -279,6 +286,9 @@ I was more excited to see you that day than getting the actual medal. Even thoug
       { src: "/photos/photo8.jpg" },
       { src: "/photos/photo9.jpg" },
       { src: "/photos/photo10.jpg" },
+      { src: "/photos/meals-5.jpg" },
+      { src: "/photos/meals-6.jpg" },
+      { src: "/photos/meals-7.jpg" },
       { src: "/photos/photo11.jpg" },
       { src: "/photos/photo12.jpg" },
       { src: "/photos/photo13.jpg" },
