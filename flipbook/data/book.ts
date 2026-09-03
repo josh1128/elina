@@ -288,11 +288,4 @@ I was more excited to see you that day than getting the actual medal. Even thoug
   },
 
   { type: "end", title: "To be continued... ❤️" },
-
-  {
-    type: "photo",
-    src: "/photos/to-be-continued.jpg",
-    alt: "A sweet future-together ending",
-    framed: true,
-  },
 ];
