@@ -203,22 +203,6 @@ You will always be my R2 partner. I will always be your biggest supporter, and n
     photos: [{ src: "/photos/photo9.jpg" }, { src: "/photos/photo10.jpg" }],
   },
 
-  {
-    type: "collage",
-    heading: "More meals with you.",
-    photos: [
-      { src: "/photos/meals-5.jpg", alt: "Spicy seafood noodle soup" },
-      { src: "/photos/meals-6.jpg", alt: "Pork and lettuce wrap meal" },
-    ],
-  },
-
-  {
-    type: "photo-caption",
-    src: "/photos/meals-7.jpg",
-    caption: "Good food always tastes better with you. ♡",
-    alt: "BBQ, fries, and cornbread meal",
-  },
-
   { type: "text", body: "Every day with you is my favourite kind of day." },
 
   {
@@ -286,9 +270,6 @@ I was more excited to see you that day than getting the actual medal. Even thoug
       { src: "/photos/photo8.jpg" },
       { src: "/photos/photo9.jpg" },
       { src: "/photos/photo10.jpg" },
-      { src: "/photos/meals-5.jpg" },
-      { src: "/photos/meals-6.jpg" },
-      { src: "/photos/meals-7.jpg" },
       { src: "/photos/photo11.jpg" },
       { src: "/photos/photo12.jpg" },
       { src: "/photos/photo13.jpg" },
