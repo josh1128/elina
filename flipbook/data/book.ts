@@ -44,7 +44,14 @@ export type Page =
       subtitle?: string;
       photos: { src: string; alt?: string; objectPosition?: string }[];
     }
-  | { type: "photo"; src: string; caption?: string; date?: string; alt?: string }
+  | {
+      type: "photo";
+      src: string;
+      caption?: string;
+      date?: string;
+      alt?: string;
+      framed?: boolean;
+    }
   | {
       type: "photo-caption";
       src: string;
@@ -286,5 +293,6 @@ I was more excited to see you that day than getting the actual medal. Even thoug
     type: "photo",
     src: "/photos/to-be-continued.jpg",
     alt: "A sweet future-together ending",
+    framed: true,
   },
 ];
