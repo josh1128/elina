@@ -30,7 +30,11 @@ function CatPaw() {
   );
 }
 
-function ChapterScene({ theme }: { theme: "lake" | "volleyball" | "meals" }) {
+function ChapterScene({
+  theme,
+}: {
+  theme: "lake" | "volleyball" | "meals" | "adventures";
+}) {
   if (theme === "lake") {
     return (
       <div className="chapter-scene chapter-lake" aria-hidden>
@@ -58,6 +62,50 @@ function ChapterScene({ theme }: { theme: "lake" | "volleyball" | "meals" }) {
           <span />
           <span />
         </div>
+      </div>
+    );
+  }
+
+  if (theme === "adventures") {
+    const moments = [
+      { icon: "🏺", label: "Pottery", className: "left-[8%] top-[16%] -rotate-6" },
+      { icon: "🏐", label: "Volleyball", className: "right-[7%] top-[18%] rotate-6" },
+      { icon: "🧶", label: "Knitting", className: "left-[7%] bottom-[25%] rotate-3" },
+      { icon: "🥾", label: "Hiking", className: "right-[8%] bottom-[25%] -rotate-3" },
+      { icon: "✈️", label: "Travelling", className: "left-1/2 bottom-[9%] -translate-x-1/2" },
+    ];
+
+    return (
+      <div className="chapter-scene" aria-hidden>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5B77B]/30 via-[#F5D7BC]/20 to-[#9FC7D6]/30" />
+        <div className="absolute right-[10%] top-[9%] h-16 w-16 rounded-full bg-[#F5A85D]/35 shadow-[0_0_42px_rgba(245,168,93,0.42)]" />
+
+        <svg
+          viewBox="0 0 500 190"
+          preserveAspectRatio="none"
+          className="absolute bottom-[18%] left-0 h-[34%] w-full text-[#33586B]/15"
+        >
+          <path d="M0 165L72 110L118 138L198 55L258 136L330 82L410 146L500 92V190H0Z" fill="currentColor" />
+        </svg>
+
+        <div className="absolute bottom-0 left-0 h-[23%] w-full bg-gradient-to-b from-[#A9D0DC]/30 via-[#7FB0C3]/24 to-[#4A7E96]/18" />
+        <div className="absolute bottom-[12%] left-[8%] h-px w-[84%] bg-white/45" />
+        <div className="absolute bottom-[8%] left-[16%] h-px w-[68%] bg-white/35" />
+
+        {moments.map((moment) => (
+          <div
+            key={moment.label}
+            className={`absolute flex min-w-[88px] flex-col items-center rounded-xl border border-white/55 bg-white/45 px-3 py-2 text-center shadow-sm backdrop-blur-[2px] ${moment.className}`}
+          >
+            <span className="text-2xl">{moment.icon}</span>
+            <span className="mt-1 font-hand text-[0.9rem] text-[#31546A]">{moment.label}</span>
+          </div>
+        ))}
+
+        <span className="absolute left-[5%] top-[8%] rotate-[-18deg] text-xl opacity-45">🐾</span>
+        <span className="absolute right-[5%] top-[39%] rotate-[18deg] text-lg opacity-40">🐾</span>
+        <span className="absolute left-[10%] bottom-[8%] rotate-[12deg] text-lg opacity-40">🐾</span>
+        <span className="absolute right-[11%] bottom-[7%] rotate-[-12deg] text-xl opacity-45">🐾</span>
       </div>
     );
   }
