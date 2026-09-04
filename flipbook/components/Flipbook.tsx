@@ -6,11 +6,72 @@ import HTMLFlipBookImport from "react-pageflip";
 import BookPage from "@/components/BookPage";
 import Lightbox from "@/components/Lightbox";
 import FinalSurprise from "@/components/FinalSurprise";
-import { pages } from "@/data/book";
+import { pages as bookPages } from "@/data/book";
+import type { Page } from "@/data/book";
 import { getSeasonPalette } from "@/lib/season";
 
 // react-pageflip's types mark several optional props as required; relax them.
 const HTMLFlipBook = HTMLFlipBookImport as unknown as ComponentType<any>;
+
+// Split the long opening flight letter into phone-friendly page-sized pieces.
+// A conservative character limit keeps each page readable without needing
+// vertical scrolling on narrow screens.
+function paginateLetter(text: string, maxChars = 300): string[] {
+  const paragraphs = text
+    .split(/\n\n+/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  const chunks: string[] = [];
+  let current = "";
+
+  paragraphs.forEach((paragraph) => {
+    const sentences =
+      paragraph
+        .match(/[^.!?]+(?:[.!?]+[”’\"']?|$)/g)
+        ?.map((sentence) => sentence.trim())
+        .filter(Boolean) ?? [paragraph];
+
+    sentences.forEach((sentence, sentenceIndex) => {
+      const separator = current ? (sentenceIndex === 0 ? "\n\n" : " ") : "";
+      const candidate = `${current}${separator}${sentence}`;
+
+      if (current && candidate.length > maxChars) {
+        chunks.push(current);
+        current = sentence;
+      } else {
+        current = candidate;
+      }
+    });
+  });
+
+  if (current) chunks.push(current);
+  return chunks;
+}
+
+function buildPages(): Page[] {
+  const first = bookPages[0];
+  const second = bookPages[1];
+
+  const isFlightLetter =
+    first?.type === "letter" &&
+    second?.type === "letter" &&
+    first.heading === "Before your flight ♡" &&
+    second.heading === "Always ♡";
+
+  if (!isFlightLetter) return bookPages;
+
+  const fullLetter = `${first.body}\n\n${second.body}`;
+  const flightPages: Page[] = paginateLetter(fullLetter).map((body, index) => ({
+    type: "letter",
+    heading: index === 0 ? "Before your flight ♡" : undefined,
+    body,
+  }));
+
+  return [...flightPages, ...bookPages.slice(2)];
+}
+
+const pages = buildPages();
 
 export default function Flipbook() {
   const bookRef = useRef<any>(null);
