@@ -33,7 +33,7 @@ export type Page =
       type: "title";
       title: string;
       subtitle?: string;
-      theme?: "lake" | "volleyball" | "meals";
+      theme?: "lake" | "volleyball" | "meals" | "adventures";
     }
   | { type: "letter"; heading?: string; body: string; signature?: string }
   | { type: "text"; body: string }
@@ -257,6 +257,41 @@ I always want to make you happy.`,
 Throughout the race, I was cramping and I thought I wasn’t able to finish. But when I thought about you, it gave me the extra push to finish.
 
 I was more excited to see you that day than getting the actual medal. Even though I was limping and had no energy, I would make time to see you.`,
+  },
+
+  {
+    type: "letter",
+    heading: "Before your flight ♡",
+    body: `I wanted to write you another letter before your flight.
+
+Elina, I’m crazy about you. Every second, I’m always kissing you. I crave your touch, your lips, and your hugs. I wasn’t like this before.
+
+When I first heard that you weren’t ready to be in a relationship, I thought about all of my shortcomings and how, despite all of my efforts, I still couldn’t get you to be my girlfriend. Knowing that, I would do it all again. I would wait for you. I would wait as long as I had to. Even if you didn’t say yes, I wouldn’t be mad. It’s because I enjoyed every moment we spent together—the mundane moments, the special moments, including our first date, Cultus Lake, and your birthday. It was all worth it to me.
+
+Throughout the time we’ve been together, you’ve told me about your unwanted feelings of jealousy and insecurity. I just want you to know that you’re the only girl I think about and the only girl I look at. You inspire me to become a better person. I will always tell you that you are the most beautiful person I know, even if you don’t believe it. If I didn’t strongly believe that, why else would I put so much effort into doing things that make you happy?
+
+My heart aches when you aren’t around. I get sad when you’re sad, but I also smile when you’re happy. You’re not only beautiful on the outside, but on the inside as well.
+
+You told me that your mom didn’t always show how proud she was of you, but deep down, I know she is proud of you. I can see something similar in my dad as well. I know how happy he is to have me as his son, even though he may not always show it through his words.
+
+Just know that I am always proud of you. I am proud of how caring you are toward others and the way you keep trying to step outside of your comfort zone. You don’t know how happy you made me when you told me you were going to do the marathon. I can’t wait to achieve so many great milestones with you.
+
+Lastly, I want you to know that I will spend as long as I have to making you happy and being that source of excitement and comfort for you. When we have problems, promise me that we will work through them together. We don’t quit when things get hard, because I know for a fact that I will never quit on you.
+
+I want to grow old with you, continue making memories, and achieve all of our dreams together. I want you to make new friends, go to raves, try new hobbies, and play as much volleyball as possible. I am never going to stop you from doing all the things you want to do, because your happiness is my top priority.
+
+Text me as much as you can when you’re in China. I’ll pick up whenever you call me.
+
+I love you, and I will never stop loving you. It is such a privilege getting to know you these past couple of months and growing closer together. You have my heart, my eyes, and most importantly, my butt HAHA.
+
+I love you, baby.`,
+  },
+
+  {
+    type: "title",
+    title: "More adventures with you. ♡",
+    subtitle: "Pottery • Volleyball • Knitting • Hiking • Travelling",
+    theme: "adventures",
   },
 
   { type: "final", title: "And we're only getting started." },
