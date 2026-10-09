@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/100-reasons",
+      "destination": "/100-reasons/index.html"
+    },
+    {
+      "source": "/100-reasons/",
+      "destination": "/100-reasons/index.html"
+    }
+  ]
 }
